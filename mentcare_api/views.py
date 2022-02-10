@@ -37,4 +37,3 @@ class PatientViews(APIView):
         item = get_object_or_404(Patient, id=id)
         item.delete()
         return Response({"status": "success", "data": "Item deleted"}, status=status.HTTP_200_OK)
-
