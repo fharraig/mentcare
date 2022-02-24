@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Patient
+from django.utils import timezone
 
 class PatientSerializer(serializers.ModelSerializer):
     PatientName = serializers.CharField(max_length=256)
