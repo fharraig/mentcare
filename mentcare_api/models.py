@@ -11,7 +11,8 @@ class Patient(models.Model):
     PatientStatus = models.CharField(max_length=256)
     CreatedOn = models.DateTimeField(default=timezone.now)
     UpdatedOn = models.DateTimeField(default=timezone.now, null=True, blank=True)
-    IsActive = models.IntegerField(default=1, blank=True, null=True, help_text='1->Active, 0->Inactive', choices =((1, 'Active'), (0, 'Inactive')))
+    IsActive = models.IntegerField(default=1, blank=True, null=True, help_text='1->Active, 0->Inactive',
+                                   choices=((1, 'Active'), (0, 'Inactive')))
 
     class Meta:
         # Add verbose name
