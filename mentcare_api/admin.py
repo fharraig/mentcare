@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Patient
+from .models import Patient, Physician, UpcomingAppointments
 from django.contrib import messages
 
 # Register your models here.
 
 class PatientAdmin(admin.ModelAdmin):
-    list_display = ('PatientName', 'PatientStatus', 'PatientClinician', 'CreatedOn', 'IsActive')
+    list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'IsActive')
 
     def active(self, obj):
         return obj.IsActive == 1
@@ -23,4 +23,15 @@ class PatientAdmin(admin.ModelAdmin):
     admin.site.add_action(make_active, "Make Active")
     admin.site.add_action(make_inactive, "Make Inactive")
 
+
+class PhysicianAdmin(admin.ModelAdmin):
+    list_display = ('PhysicianName', 'ListOfPatients')
+
+
+class UpcomingAppointmentsAdmin(admin.ModelAdmin):
+    list_display = ('PatientName', 'PhysicianName', 'DateOfAppointment', 'Time')
+
+
 admin.site.register(Patient, PatientAdmin)
+admin.site.register(Physician, PhysicianAdmin)
+admin.site.register(UpcomingAppointments, UpcomingAppointmentsAdmin)
