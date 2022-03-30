@@ -10,7 +10,7 @@ def check():
     items = models.Patient.objects.all()
     for obj in items:
         if obj.DateOfLastVisit:
-            dt = obj.DateOfLastVisit - timezone.now
+            dt = timezone.now - obj.DateOfLastVisit
             if dt.days > 30:
                 obj.AppointmentOverdue = 1
             else:

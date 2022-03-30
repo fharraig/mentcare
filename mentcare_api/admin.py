@@ -6,7 +6,7 @@ from django.contrib import messages
 
 
 class PatientAdmin(admin.ModelAdmin):
-    list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'IsActive')
+    list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'AppointmentOverdue', 'IsActive')
 
     def active(self, obj):
         return obj.IsActive == 1
