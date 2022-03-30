@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
+    'django_apscheduler',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

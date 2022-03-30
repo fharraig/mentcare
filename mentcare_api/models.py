@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 # Model for patient
 class Patient(models.Model):
     PatientName = models.CharField(max_length=256)
@@ -10,13 +11,14 @@ class Patient(models.Model):
     DateOfLastVisit = models.DateField(default=timezone.now, blank=True, null=True)
     PatientAdmitDate = models.DateField(default=timezone.now)
     PatientReleaseDate = models.DateField(blank=True, null=True)
-    CreatedOn = models.DateTimeField(default=timezone.now, help_text='Time is in GMT') # time is in GMT by default
+    CreatedOn = models.DateTimeField(default=timezone.now, help_text='Time is in GMT')  # time is in GMT by default
     UpdatedOn = models.DateTimeField(default=timezone.now, null=True, blank=True)
-    IsActive = models.IntegerField(default=1, blank=True, null=True, help_text='1->Active, 0->Inactive',
-                                   choices=((1, 'Active'), (0, 'Inactive')))
+    IsActive = models.IntegerField(default=1, blank=True, null=True, choices=((1, 'Admitted'), (0, 'Released')))
+    AppointmentOverdue = models.IntegerField(default=0, blank=True, null=True, choices=((1, 'Overdue'), (0, 'Fine')))
 
     class Meta:
         verbose_name = 'Patient'
+
 
 # Model for physician
 class Physician(models.Model):
@@ -25,6 +27,7 @@ class Physician(models.Model):
 
     class Meta:
         verbose_name = 'Physician'
+
 
 # Model for upcoming appointments
 class UpcomingAppointments(models.Model):
@@ -35,4 +38,3 @@ class UpcomingAppointments(models.Model):
 
     class Meta:
         verbose_name = "Upcoming Appointment"
-

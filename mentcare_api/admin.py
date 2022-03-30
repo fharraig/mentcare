@@ -4,6 +4,7 @@ from django.contrib import messages
 
 # Register your models here.
 
+
 class PatientAdmin(admin.ModelAdmin):
     list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'IsActive')
 

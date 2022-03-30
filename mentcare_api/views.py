@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from .serializers import PatientSerializer, PhysicianSerializer, UpcomingAppointmentsSerializer
 from .models import Patient, Physician, UpcomingAppointments
 
+
 class PatientViews(APIView):
     def post(self, request):
         serializer = PatientSerializer(data=request.data)

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Patient, Physician, UpcomingAppointments
 
+
 class PatientSerializer(serializers.ModelSerializer):
     PatientName = serializers.CharField(max_length=256)
     PatientAdmitDate = serializers.DateField()
@@ -12,6 +13,7 @@ class PatientSerializer(serializers.ModelSerializer):
         model = Patient
         fields = '__all__'
 
+
 class PhysicianSerializer(serializers.ModelSerializer):
     PhysicianName = serializers.CharField(max_length=256)
     ListOfPatients = serializers.CharField(max_length=256)
@@ -19,6 +21,7 @@ class PhysicianSerializer(serializers.ModelSerializer):
     class Meta:
         model = Physician
         fields = '__all__'
+
 
 class UpcomingAppointmentsSerializer(serializers.ModelSerializer):
     PatientName = serializers.CharField(max_length=256)
