@@ -1,3 +1,3 @@
 # mentcare api
 
-# developed by Matt, Ryan, Ross, Dylan, Jordan
+developed by Matt, Ryan, Ross, Dylan, Jordan
