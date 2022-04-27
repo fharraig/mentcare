@@ -23,6 +23,7 @@ class Patient(models.Model):
 # Model for physician
 class Physician(models.Model):
     PhysicianName = models.CharField(max_length=256)
+    PhysicianEmail = models.CharField(max_length=256, default="doctor@hospital.com", blank=True, null=True)
     ListOfPatients = models.CharField(max_length=256)
 
     class Meta:

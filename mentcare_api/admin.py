@@ -1,11 +1,12 @@
 from django.contrib import admin
 from .models import Patient, Physician, UpcomingAppointments
 from django.contrib import messages
+from import_export.admin import ImportExportModelAdmin,ExportActionMixin
 
 # Register your models here.
 
 
-class PatientAdmin(admin.ModelAdmin):
+class PatientAdmin(ImportExportModelAdmin):
     list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'AppointmentOverdue', 'IsActive')
 
     def active(self, obj):
@@ -25,11 +26,11 @@ class PatientAdmin(admin.ModelAdmin):
     admin.site.add_action(make_inactive, "Make Inactive")
 
 
-class PhysicianAdmin(admin.ModelAdmin):
-    list_display = ('PhysicianName', 'ListOfPatients')
+class PhysicianAdmin(ImportExportModelAdmin):
+    list_display = ('PhysicianName', 'PhysicianEmail', 'ListOfPatients')
 
 
-class UpcomingAppointmentsAdmin(admin.ModelAdmin):
+class UpcomingAppointmentsAdmin(ImportExportModelAdmin):
     list_display = ('PatientName', 'PhysicianName', 'DateOfAppointment', 'Time')
 
 

@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'import_export',
     'mentcare_api',
 ]
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 X_FRAME_OPTIONS='SAMEORIGIN'
 
