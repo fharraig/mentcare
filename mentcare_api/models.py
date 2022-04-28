@@ -15,6 +15,7 @@ class Patient(models.Model):
     UpdatedOn = models.DateTimeField(default=timezone.now, null=True, blank=True)
     IsActive = models.IntegerField(default=1, blank=True, null=True, choices=((1, 'Admitted'), (0, 'Released')))
     AppointmentOverdue = models.IntegerField(default=0, blank=True, null=True, choices=((1, 'Overdue'), (0, 'Fine')))
+    RegulationZone = models.IntegerField(default=0, blank=True, null=True, choices=((0, 'Green'), (1, 'Blue'), (2, 'Yellow'), (3, 'Red')))
 
     class Meta:
         verbose_name = 'Patient'

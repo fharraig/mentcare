@@ -7,7 +7,7 @@ from import_export.admin import ImportExportModelAdmin,ExportActionMixin
 
 
 class PatientAdmin(ImportExportModelAdmin):
-    list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'AppointmentOverdue', 'IsActive')
+    list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'AppointmentOverdue', 'RegulationZone')
 
     def active(self, obj):
         return obj.IsActive == 1
