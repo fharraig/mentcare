@@ -1,12 +1,13 @@
 from django.contrib import admin
 from .models import Patient, Physician, UpcomingAppointments
 from django.contrib import messages
-from import_export.admin import ImportExportModelAdmin,ExportActionMixin
+from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
 
 class PatientAdmin(ImportExportModelAdmin):
+
     list_display = ('PatientName', 'PatientClinician', 'PatientCondition', 'DateOfLastVisit', 'PatientAdmitDate', 'AppointmentOverdue', 'RegulationZone')
 
     def active(self, obj):
